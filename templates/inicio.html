@@ -1,0 +1,52 @@
+{% extends "plantilla.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+    <div class="inicio">
+        <div class="inicio-container">
+            <h1>Bienvenido a Enigma</h1>
+            <p>Esta es una web hecha tanto para el administrador como los empleados.</p>
+            <p>Explora la sección productos, puedes consultar el stock, cargar, editar, borrar y buscar productos.</p>
+            <p>Ingresa la contraseña para ir a productos.</p>
+            
+
+        </div>
+        
+        <form id="loginForm", class="inicio-form">
+            <input type="password" id="password" placeholder="Ingresa tu contraseña" required>
+            <input type="submit" value="Iniciar sesión">
+            <p class="error" id="errorMessage">Contraseña incorrecta. Inténtalo de nuevo.</p>
+        </form>
+        
+        <script>
+            // La contraseña correcta que queremos que el usuario ingrese
+            const CORRECT_PASSWORD = "1234";
+        
+            // Obtenemos el formulario y el campo de contraseña
+            const form = document.getElementById('loginForm');
+            const passwordField = document.getElementById('password');
+            const errorMessage = document.getElementById('errorMessage');
+        
+            // Agregamos un evento para cuando el usuario envíe el formulario
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Evitar que la página se recargue
+                
+                // Obtener el valor de la contraseña ingresada
+                const enteredPassword = passwordField.value;
+        
+                // Validar la contraseña
+                if (enteredPassword === CORRECT_PASSWORD) {
+                    alert("Inicio de sesión exitoso");
+                    // Aquí podrías redirigir a otra página si lo necesitas
+                    window.location.href = "productos";
+                    
+                } else {
+                    // Mostrar mensaje de error
+                    errorMessage.style.display = 'block';
+                }
+            });
+        </script>
+    
+    </div>
+{% endblock %}

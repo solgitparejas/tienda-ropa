@@ -1,0 +1,254 @@
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Hace que el body ocupe toda la altura de la pantalla */
+  display: flex;
+  justify-content: center; /* Centra el div horizontalmente */
+  align-items: center; /* Centra el div verticalmente */
+  background-color: #c59d9d; /* Color de fondo suave */
+}
+
+/* INICIO */
+/* Estilo para la barra de navegación */
+.barra {
+  background-color: #333;
+  position: fixed; /* Fija la barra en la parte superior */
+  top: 0; /* Se asegura que esté en la parte superior */
+  right: 0; /* La barra se alinea a la derecha */
+  width: 100%; /* Abarca el 100% del ancho de la pantalla */
+  display: flex;
+  justify-content: flex-end; /* Alinea los enlaces a la derecha */
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Añade una ligera sombra */
+  z-index: 1; /* Asegura que la barra esté siempre por encima del contenido */
+}
+
+/* Estilo de los enlaces de la barra de navegación */
+.barra a {
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+.barra a:hover {
+  background-color: #dddddd;
+  color: black;
+}
+
+.barra a.active {
+  background-color: #834343;
+  color: white;
+}
+
+.inicio {
+  background-color: #e7dede;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 700px;
+  width: 100%;
+  margin-top: 80px;
+}
+
+.inicio-form {
+  background-color: #e7dede;
+  border: none;
+}
+
+.login-container {
+  background-color: #e7dede;
+  padding: 20px;
+  border-radius: 0px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+  text-align: center;
+}
+
+.login-container input[type="password"], .login-container input[type="submit"] {
+  background-color: #e7dede;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: none solid #e7dede;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  display: none;
+}
+
+
+
+
+
+
+/* PRODUCTOS */
+/* Div de tabla de productos */
+.tabla_productos {
+  background-color: #e7dede;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 900px;
+  width: 100%;
+  margin-top: 80px;
+  top: 20px; 
+}
+
+/* contenedor superior, el de arriba de la tabla productos*/
+.contenedor-superior {
+  display: flex;  /* Usar flexbox para organizar los divs en fila */
+  justify-content: center;  /* Alinea ambos divs en el centro de la fila */
+  align-items: center;  /* Alinea verticalmente los divs */
+  gap: 20px;  /* Añade espacio entre los divs (ajusta según necesidad) */
+}
+
+
+/* Buscador de productos*/
+.buscador-form {
+  background-color: #e7dede;
+  border: none;
+}
+
+.buscador-productos {
+
+  display: flex;  /* Alinea el input y el botón en una fila */
+  justify-content: center;  /* Centra el buscador horizontalmente */
+  align-items: center;  /* Centra el contenido verticalmente */
+  margin: 10px 0;  /* Reduce el espacio superior e inferior */
+}
+
+.buscador-productos input[type="text"] {
+  width: 200px;  /* Ajusta el ancho del input */
+  padding: 5px;  /* Reduce el padding interno del input */
+  font-size: 14px;  /* Tamaño de fuente más pequeño */
+  margin-right: 10px;  /* Espacio entre el input y el botón */
+  border-radius: 5px;  /* Bordes redondeados para el input */
+}
+
+.buscador-productos button {
+  padding: 5px 10px;  /* Reduce el padding del botón */
+  font-size: 14px;  /* Tamaño de fuente más pequeño */
+  cursor: pointer;  /* Cambia el cursor al pasar sobre el botón */
+  border-radius: 5px;  /* Bordes redondeados para el botón */
+}
+
+/* Contenedor para organizar los botones */
+.contenedor-botones {
+  display: flex;
+  justify-content: center; /* Centra los botones horizontalmente */
+  gap: 20px; /* Espacio entre los botones */
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+/* Estilo para los botones */
+.boton {
+  display: inline-block;
+  background-color: #e69270;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.boton:hover {
+  background-color: #008C4A;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+/* CARGA DE PRODUCTO */
+.carga {
+  background-color: #e7dede;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 700px;
+  width: 100%;
+  margin-top: 80px;
+}
+
+/* formulario de carga de producto */
+/* Estilos generales para el formulario */
+form {
+  max-width: 500px; /* Ancho máximo del formulario */
+  margin: 0 auto; /* Centrar el formulario */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los elementos del formulario */
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="date"],
+form select,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  background-color: #fff;
+  transition: border-color 0.3s;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form input[type="date"]:focus,
+form select:focus,
+form textarea:focus {
+  border-color: #04AA6D; /* Cambia el color del borde al enfocar */
+  outline: none;
+}
+
+/* Estilo para el botón de envío */
+form button {
+  width: 100%;
+  background-color: #e69270;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+form button:hover {
+  background-color: #028A50; /* Color del botón al pasar el cursor */
+}
+
+/* Estilo opcional para el texto de ayuda o mensajes de error */
+.form-help {
+  font-size: 14px;
+  color: #777;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}

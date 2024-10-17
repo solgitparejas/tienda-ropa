@@ -1,0 +1,49 @@
+{% extends "plantilla.html" %}
+
+{% block title %}Venta de productos{% endblock %}
+
+{% block content %}
+<!-- Tabla de productos -->
+<div class="tabla_productos">
+    <div class="contenedor-superior">
+
+        <div class="contenedor-botones">
+            <!-- Para mostrar los productos nuevamente, luego de buscar alguno -->
+            <a href="/productos" class="boton">Volver a productos</a>
+        </div>
+
+        <!-- Buscador de productos -->
+        <!-- <div class="buscador-productos">
+            <form method="GET" action="/buscar_producto", class="buscador-form">
+                <input type="text" name="query" placeholder="Ingrese el nombre del producto" />
+                <button type="submit">Buscar</button>
+            </form>
+        </div> -->
+    </div>
+
+    <h3>Venta de productos</h3>
+    <p>Tabla de los productos vendidos, donde si se vende un producto, se muestra aquí y se borra de la tabla de productos.</p>
+    <p>Se deben mostrar todas las características anteriores del producto, sumando un formulario donde se pregunta sobre el precio vendido, método de pago y cuanta plata.</p>
+    
+    <h3>Tabla de ventas de productos</h3>
+    <table style="border-spacing: 28px 0;">
+        <thead>
+            <tr>
+                <th>Nombre del Producto</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Talle</th>
+                <th>Fecha de ingreso</th>
+                <th>Cantidad</th>
+                <th>Acciones</th>
+                <th>Método de pago</th>
+            </tr>
+        </thead>
+            
+    </table>    
+
+
+
+
+</div>
+{% endblock %}

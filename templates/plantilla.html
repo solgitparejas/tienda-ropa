@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}My App{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='plantilla1.css') }}">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <div class="barra">
+        <a class="active" href="/">Inicio</a>
+        <!-- <a href="/productos">Productos</a>
+        <a href="/inicio_sesion">Inicio de sesión</a> -->
+    </div>
+
+    {% block content %}hj{% endblock %}
+</body>
+</html>
+
