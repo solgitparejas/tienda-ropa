@@ -1,0 +1,62 @@
+{% extends "plantilla.html" %}
+
+{% block title %}Venta de productos{% endblock %}
+
+{% block content %}
+<!-- Tabla de productos -->
+<div class="tabla_productos">
+    <div class="contenedor-superior">
+        <div class="contenedor-botones">
+              <!-- Botón que lleva a otra página -->
+              <a href="/carga_venta" class="boton">Cargar Venta</a>
+        </div>
+         <!-- Buscador de ventas -->
+         <div class="buscador-productos">
+            <form method="GET" action="/buscar_venta", class="buscador-form">
+                <input type="text" name="query" placeholder="Ingrese el nombre de la venta" />
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+    </div>
+    <!-- Bloque para mostrar mensajes flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul class="flashes">
+        {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+
+    <h3>Tabla de ventas de productos</h3>
+    <table style="border-spacing: 28px 0;">
+        <thead>
+            <tr>
+                <th>Nombre del producto</th>
+                <th>Precio</th>  
+                <th>Unidades vendidas</th>
+                <th>Fecha vendida</th>
+                <th>Método de pago</th>
+                <th>Acciónes</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for venta in ventas %}
+            <tr>
+                <td>{{ venta.nombre }}</td>
+                <td>{{ venta.precio }}</td>
+                <td>{{ venta.cantidad_vendida }}</td>
+                <td>{{ venta.fechavendida }}</td>
+                <td>{{ venta.metodopago }}</td>
+                <td><!--Acciones-->
+                    <a href="{{url_for('editar_venta', id_venta=venta.id_venta) }}"><img src="{{ url_for('static', filename='editar.jpg') }}" height="20" width="20"></a>
+                    <a href="{{url_for('eliminar_venta', id_venta=venta.id_venta) }}"><img src="{{ url_for('static', filename='borrar.jpg') }}" height="20" width="20"></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>    
+</div>
+{% endblock %}

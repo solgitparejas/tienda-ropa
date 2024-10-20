@@ -252,3 +252,27 @@ form button:hover {
   margin-top: -10px;
   margin-bottom: 15px;
 }
+
+
+/* PLANTILLA */
+/* Mensajes flash */ 
+.flashes {
+  list-style-type: none;
+  padding: 0;
+}
+
+.flashes li {
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid transparent;
+}
+
+.flashes li.success {
+  color: green;
+  border-color: green;
+}
+
+.flashes li.danger {
+  color: red;
+  border-color: red;
+}

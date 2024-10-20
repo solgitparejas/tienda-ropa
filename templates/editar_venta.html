@@ -1,0 +1,26 @@
+{% extends "plantilla.html" %}
+
+{% block title %}Editar venta{% endblock %}
+
+{% block content %}
+
+<div class="carga">
+    <h3>Edite la venta</h3>
+    <form action="/editar_venta/{{ venta['id_venta'] }}" method="POST">
+        
+        <label for="precio">Precio:</label>
+        <input type="number" id_venta="precio" name="precio" step="0.01" value="{{ venta['precio'] }}" required><br>
+
+        <label for="cantidad_vendida">Cantidad Vendida:</label>
+        <input type="number" id_venta="cantidad_vendida" name="cantidad_vendida" value="{{ venta['cantidad_vendida'] }}" required><br>
+
+        <label for="fechavendida">Fecha Vendida:</label>
+        <input type="date" id_venta="fechavendida" name="fechavendida" value="{{ venta['fechavendida'] }}" required><br>
+
+        <label for="metodopago">Método de pago:</label>
+        <input type="text" id_venta="metodopago" name="metodopago" value="{{ venta['metodopago'] }}" required><br>
+
+        <button type="submit">Guardar cambios</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,10 +1,12 @@
 {% extends "plantilla.html" %}
 
-{% block title %}Productos{% endblock %}
+{% block title %}Stock{% endblock %}
 
 {% block content %}
-    <!-- Tabla de productos -->
+    <!-- Tabla de productos en stock -->
     <div class="tabla_productos">
+        <h3>Esta página esta dedicada al stock</h3>
+        <p>Los botones aun no funcionan</p>
         <div class="contenedor-superior">
             <div class="contenedor-botones">
                 <!-- Botón que lleva a otra página -->
@@ -18,26 +20,21 @@
                 </form>
             </div>
         </div>
-        <h3>Tabla de productos</h3>
+        <h3>Tabla de productos en stock</h3>
         <table style="border-spacing: 28px 0;">
             <thead>
                 <tr>
                     <th>Nombre del producto</th>
-                    <th>Descripción</th>
-                    <th>Talle</th>
-                    <th>Acciones</th>
+                    <th>Unidades</th>
+                    <th>Fecha de ingreso</th>
                 </tr>
             </thead>
             <tbody>
-                {% for producto in productos %}
+                {% for stock in stocks %}
                 <tr>
-                    <td>{{ producto.nombre }}</td>
-                    <td>{{ producto.descripcion }}</td>
-                    <td>{{ producto.talle }}</td>
-                    <td><!--Acciones-->
-                        <a href="{{url_for('editar_producto', id_producto=producto.id_producto) }}"><img src="{{ url_for('static', filename='editar.jpg') }}" height="20" width="20"></a>
-                        <a href="{{ url_for('eliminar_producto', id_producto=producto.id_producto) }}"><img src="{{ url_for('static', filename='borrar.jpg') }}" height="20" width="20"></a>
-                    </td>
+                    <td>{{ stock.nombre }}</td>
+                    <td>{{ stock.cantidad }}</td>
+                    <td>{{ stock.fechaingreso }}</td>
                 </tr>
                 {% endfor %}
             </tbody>

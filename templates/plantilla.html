@@ -12,9 +12,14 @@
     <!-- Barra de navegación -->
     <div class="barra">
         <a class="active" href="/">Inicio</a>
-        <!-- <a href="/productos">Productos</a>
-        <a href="/inicio_sesion">Inicio de sesión</a> -->
+        {% if mostrar_productos %}
+            <a href="/productos">Productos</a>
+            <a href="/stock">Stock</a>
+            <a href="/ventas">Ventas</a>
+        {% endif %}
     </div>
+
+    
 
     {% block content %}hj{% endblock %}
 </body>

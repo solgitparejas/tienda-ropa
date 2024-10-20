@@ -1,0 +1,44 @@
+{% extends "plantilla.html" %}
+
+{% block title %}Carga de ventas de productos{% endblock %}
+
+{% block content %}
+
+<div class="carga">
+    <h3>Ingrese una nueva venta</h3>
+    <form action="/carga_venta" method="POST">
+        <select id_producto="producto" name="producto" required onchange="rellenarCampos()">
+            <option value="">Seleccione un producto</option>
+            {% for producto in productos %}
+            <option value="{{ producto.id_producto }}">{{ producto.nombre }}</option>
+            {% endfor %}
+        </select>
+        <input type="number" id_venta="precio" name="precio" placeholder="Ingrese el precio de venta por unidad" required>
+        <input type="number" id_venta="cantidad_vendida" name="cantidad_vendida" placeholder="Ingrese cantidad vendida del producto" required>
+        <input type="date" id_venta="fechavendida" name="fechavendida" placeholder="Ingrese fecha de venta del producto" required>
+        <input type="text" id_venta="metodopago" name="metodopago" placeholder="Ingrese el método de pago" required>
+        <button type="submit">Guardar</button>
+    </form>    
+</div>
+
+<!-- Aquí agregamos el JavaScript -->
+<!-- <script>
+    function rellenarCampos() {
+        const productoId = document.getElementById('producto').value;  // Obtén el ID del producto seleccionado
+    
+        if (productoId) {
+            // Hace una solicitud a la ruta /obtener_producto/<id>
+            fetch(`/obtener_producto/${productoId}`)
+                .then(response => response.json())  // Convertimos la respuesta a JSON
+                .then(data => {
+                    // Si se obtiene correctamente el producto, rellenamos los campos
+                    document.getElementById('descripcion').value = data.descripcion;
+                    document.getElementById('precio').value = data.precio;
+                    document.getElementById('talle').value = data.talle;
+                    document.getElementById('fechaingreso').value = data.fechaingreso;
+                })
+                .catch(error => console.error('Error:', error));  // Manejamos cualquier error
+        }
+    }
+    </script> -->
+{% endblock %}
