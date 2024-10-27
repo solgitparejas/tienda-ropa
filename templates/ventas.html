@@ -4,7 +4,7 @@
 
 {% block content %}
 <!-- Tabla de productos -->
-<div class="tabla_productos">
+<div class="tabla_ventas">
     <div class="contenedor-superior">
         <div class="contenedor-botones">
               <!-- Botón que lleva a otra página -->
@@ -18,6 +18,7 @@
             </form>
         </div>
     </div>
+
     <!-- Bloque para mostrar mensajes flash -->
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
@@ -28,7 +29,6 @@
         </ul>
     {% endif %}
     {% endwith %}
-
     <h3>Tabla de ventas de productos</h3>
     <table style="border-spacing: 28px 0;">
         <thead>
@@ -36,13 +36,12 @@
                 <th>Nombre del producto</th>
                 <th>Precio</th>  
                 <th>Unidades vendidas</th>
-                <th>Fecha vendida</th>
+                <th>Fecha de venta</th>
                 <th>Método de pago</th>
-                <th>Acciónes</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            
             {% for venta in ventas %}
             <tr>
                 <td>{{ venta.nombre }}</td>

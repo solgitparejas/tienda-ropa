@@ -11,11 +11,11 @@
 <body>
     <!-- Barra de navegación -->
     <div class="barra">
-        <a class="active" href="/">Inicio</a>
+        <a class="{% if request.path == '/' %}active{% endif %}" href="/">Inicio</a>
         {% if mostrar_productos %}
-            <a href="/productos">Productos</a>
-            <a href="/stock">Stock</a>
-            <a href="/ventas">Ventas</a>
+            <a class="{% if request.path == '/productos' %}active{% endif %}" href="/productos">Productos</a>
+            <a class="{% if request.path == '/stock' %}active{% endif %}" href="/stock">Stock</a>
+            <a class="{% if request.path == '/ventas' %}active{% endif %}" href="/ventas">Ventas</a>
         {% endif %}
     </div>
 

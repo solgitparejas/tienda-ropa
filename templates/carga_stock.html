@@ -1,0 +1,34 @@
+{% extends "plantilla.html" %}
+
+{% block title %}Carga de stock{% endblock %}
+
+{% block content %}
+
+<div class="carga">
+    <h3>Ingrese nuevo stock</h3>
+    <form action="/carga_stock" method="POST">
+        <label for="nombre">Producto a elegir:</label>
+
+        <!-- <select id_producto="producto" name="producto" required onchange="rellenarCampos()">
+            <option value="">Seleccione un producto</option>
+            {% for producto in productos %}
+            <option value="{{ producto.id_producto }}">{{ producto.nombre }}</option>
+            {% endfor %}
+        </select> -->
+        
+        <select name="producto" id_producto="producto">
+            {% for producto in productos %}
+                <option value="{{ producto.id_producto }}">
+                    {{ producto.nombre }} - Talle: {{ producto.talle }} - Descripción: {{ producto.descripcion }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <label for="nombre">Cantidad de unidades:</label>
+        <input type="number" id_stock="cantidad" name="cantidad" placeholder="Ingrese la cantidad de unidades" min="1" required>
+        <label for="nombre">Fecha de ingreso:</label>
+        <input type="date" id_stock="fechaingreso" name="fechaingreso" placeholder="Ingrese fecha de ingreso del producto" required>
+        <button type="submit">Guardar</button>
+    </form>    
+</div>
+{% endblock %}

@@ -4,39 +4,59 @@
 
 {% block content %}
     <!-- Tabla de productos en stock -->
-    <div class="tabla_productos">
-        <h3>Esta página esta dedicada al stock</h3>
-        <p>Los botones aun no funcionan</p>
+    <div class="tabla_stock">
         <div class="contenedor-superior">
             <div class="contenedor-botones">
                 <!-- Botón que lleva a otra página -->
-                <a href="/carga_producto" class="boton">Cargar Producto</a>
+                <a href="/carga_stock" class="boton">Cargar Stock</a>
             </div>
             <!-- Buscador de productos -->
             <div class="buscador-productos">
-                <form method="GET" action="/buscar_producto", class="buscador-form">
+                <form method="GET" action="/buscar_stock", class="buscador-form">
                     <input type="text" name="query" placeholder="Ingrese el nombre del producto" />
                     <button type="submit">Buscar</button>
                 </form>
             </div>
         </div>
+
+        <!-- Bloque para mostrar mensajes flash -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flashes">
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+      
         <h3>Tabla de productos en stock</h3>
         <table style="border-spacing: 28px 0;">
             <thead>
                 <tr>
                     <th>Nombre del producto</th>
+                    <th>Descripción</th>
+                    <th>Talle</th>
                     <th>Unidades</th>
                     <th>Fecha de ingreso</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                {% for stock in stocks %}
+                {% for item in stock %}
                 <tr>
-                    <td>{{ stock.nombre }}</td>
-                    <td>{{ stock.cantidad }}</td>
-                    <td>{{ stock.fechaingreso }}</td>
+                    <td>{{ item.nombre }}</td>
+                    <td>{{ item.descripcion }}</td>
+                    <td>{{ item.talle }}</td>
+                    <td>{{ item.cantidad }}</td>
+                    <td>{{ item.fechaingreso }}</td>
+                    <td><!--Acciones-->
+                        <a href="{{url_for('editar_stock', id_stock=item.id_stock) }}"><img src="{{ url_for('static', filename='editar.jpg') }}" height="20" width="20"></a>
+                        <a href="{{url_for('eliminar_stock', id_stock=item.id_stock) }}"><img src="{{ url_for('static', filename='borrar.jpg') }}" height="20" width="20"></a>
+                    </td>
                 </tr>
                 {% endfor %}
+            
             </tbody>
         </table>        
     </div>

@@ -7,38 +7,38 @@
 <div class="carga">
     <h3>Ingrese una nueva venta</h3>
     <form action="/carga_venta" method="POST">
-        <select id_producto="producto" name="producto" required onchange="rellenarCampos()">
-            <option value="">Seleccione un producto</option>
-            {% for producto in productos %}
-            <option value="{{ producto.id_producto }}">{{ producto.nombre }}</option>
+        
+        <!-- Bloque para mostrar mensajes flash -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flashes">
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+
+        <label for="nombre">Producto a elegir en stock:</label>
+       
+        <select name="producto" id_producto="producto">
+            {% for item in stock %}
+                <option value="{{ item.id_stock }}">
+                    {{ item.nombre }} - Talle: {{ item.talle }} - Descripción: {{ item.descripcion }} - Cantidad disponible: {{ item.cantidad }}
+                </option>
             {% endfor %}
         </select>
-        <input type="number" id_venta="precio" name="precio" placeholder="Ingrese el precio de venta por unidad" required>
-        <input type="number" id_venta="cantidad_vendida" name="cantidad_vendida" placeholder="Ingrese cantidad vendida del producto" required>
+
+        <label for="nombre">Precio por unidad ($):</label>
+        <input type="number" id_venta="precio" name="precio" placeholder="Ingrese el precio de venta por unidad" min="1" required>
+        <label for="nombre">Cantidad vendida:</label>
+        <input type="number" id_venta="cantidad_vendida" name="cantidad_vendida" placeholder="Ingrese cantidad vendida del producto" min="1" required>
+        <label for="nombre">Fecha vendida:</label>
         <input type="date" id_venta="fechavendida" name="fechavendida" placeholder="Ingrese fecha de venta del producto" required>
+        <label for="nombre">Método de pago:</label>
         <input type="text" id_venta="metodopago" name="metodopago" placeholder="Ingrese el método de pago" required>
         <button type="submit">Guardar</button>
     </form>    
 </div>
 
-<!-- Aquí agregamos el JavaScript -->
-<!-- <script>
-    function rellenarCampos() {
-        const productoId = document.getElementById('producto').value;  // Obtén el ID del producto seleccionado
-    
-        if (productoId) {
-            // Hace una solicitud a la ruta /obtener_producto/<id>
-            fetch(`/obtener_producto/${productoId}`)
-                .then(response => response.json())  // Convertimos la respuesta a JSON
-                .then(data => {
-                    // Si se obtiene correctamente el producto, rellenamos los campos
-                    document.getElementById('descripcion').value = data.descripcion;
-                    document.getElementById('precio').value = data.precio;
-                    document.getElementById('talle').value = data.talle;
-                    document.getElementById('fechaingreso').value = data.fechaingreso;
-                })
-                .catch(error => console.error('Error:', error));  // Manejamos cualquier error
-        }
-    }
-    </script> -->
 {% endblock %}

@@ -7,12 +7,12 @@
 <div class="carga">
     <h3>Ingrese un nuevo producto</h3>
     <form action="/carga_producto" method="POST">
+        <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" placeholder="Ingrese nombre del producto" required>
+        <label for="nombre">Descripción:</label>
         <input type="text" name="descripcion" placeholder="Ingrese descripción del producto" required>
-        <input type="number" name="precio" placeholder="Ingrese precio del producto" required>
+        <label for="nombre">Talle:</label>
         <input type="text" name="talle" placeholder="Ingrese talle del producto" required>
-        <input type="date" name="fechaingreso" placeholder="Ingrese fecha de ingreso del producto" required>
-        <input type="number" name="cantidad" placeholder="Ingrese cantidad del producto" required>
         <button type="submit">Guardar</button>
     </form>
 </div>
